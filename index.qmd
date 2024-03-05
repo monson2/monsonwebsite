@@ -1,0 +1,35 @@
+---
+title: "Cole Monson"
+about:
+  id: intro-heading
+  template: jolla
+  image: images/pfp.jpg
+  image-shape: round
+  links:
+    - icon: envelope
+      href: mailto:monson2@stolaf.edu
+    - icon: github
+      href: https://github.com/monson2/monson2.github.io
+---
+
+::: {#intro-heading}
+## Cole Monson
+
+[he/him/his](https://pronouns.org/)
+
+Mathematics + Computer Science Major with Statistics and Data Science Concentration at St. Olaf College <br>
+
+[St. Olaf College](https://wp.stolaf.edu/)
+
+### Cool Things I Sometimes Do
+
+A/V Engineer, Chapel Specialist \| Broadcast Media
+
+TA/Grader \| MSCS Department
+
+St. Olaf Band (Tenor Sax), St. Olaf Handbells
+:::
+
+### Get in Touch
+
+**Email**: <a href='mailto:monson2@stolaf.edu'>monson2 at stolaf.edu</a>
