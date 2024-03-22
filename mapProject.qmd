@@ -32,10 +32,14 @@ head(us_states)
 ```
 
 ```{r}
+#| message: false
+#| warning: false
 StatePopulation <- read.csv("https://raw.githubusercontent.com/ds4stats/r-tutorials/master/intro-maps/data/StatePopulation.csv", as.is = TRUE)
 ```
 
 ```{r}
+#| message: false
+#| warning: false
 us_rent_income |>
   filter(variable == "income") |>
   mutate(name = str_to_lower(NAME)) |>
@@ -52,6 +56,7 @@ us_rent_income |>
 We can see that states like Maryland and Washington had a greater yearly income for 2017 while states like Alabama and West Virginia were not as fortuitous. It's interesting how states like Maryland and Virginia are doing well while their neighbors are all on the other end of the spectrum. One other thing to note is that the Southeast US tended to earn less than most other regions.
 
 ```{r}
+#| eval: false
 #| message: false
 #| warning: false
 
@@ -81,6 +86,7 @@ wi_results |>
 ```
 
 ```{r}
+#| eval: false
 #| message: false
 #| warning: false
 
@@ -118,6 +124,7 @@ head(wi_merged, width = Inf)
 ```
 
 ```{r}
+#| eval: false
 
 # Color based on winning party
 #   Note that geom_sf is part of ggplot2 package, while st_geometry is

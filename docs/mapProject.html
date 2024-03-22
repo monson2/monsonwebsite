@@ -121,7 +121,11 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   </li>  
   <li class="nav-item">
     <a class="nav-link active" href="./mapProject.html" rel="" target="" aria-current="page">
- <span class="menu-text">Project</span></a>
+ <span class="menu-text">Project 1</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="./simulationProject.html" rel="" target="">
+ <span class="menu-text">Project 2</span></a>
   </li>  
 </ul>
             <div class="quarto-navbar-tools ms-auto">
@@ -198,266 +202,91 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <span id="cb5-9"><a href="#cb5-9" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">title =</span> <span class="st">"Average 2017 Income by State"</span>, <span class="at">fill =</span> <span class="st">"Yearly Income (in USD)"</span>) <span class="sc">+</span></span>
 <span id="cb5-10"><a href="#cb5-10" aria-hidden="true" tabindex="-1"></a>  <span class="fu">coord_map</span>() <span class="sc">+</span></span>
 <span id="cb5-11"><a href="#cb5-11" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_mdsr</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stderr">
-<pre><code>Warning in grid.Call(C_stringMetric, as.graphicsAnnot(x$label)): font family
-not found in Windows font database
-
-Warning in grid.Call(C_stringMetric, as.graphicsAnnot(x$label)): font family
-not found in Windows font database</code></pre>
-</div>
-<div class="cell-output cell-output-stderr">
-<pre><code>Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, : font
-family not found in Windows font database</code></pre>
-</div>
-<div class="cell-output cell-output-stderr">
-<pre><code>Warning in grid.Call(C_stringMetric, as.graphicsAnnot(x$label)): font family
-not found in Windows font database</code></pre>
-</div>
-<div class="cell-output cell-output-stderr">
-<pre><code>Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, : font
-family not found in Windows font database
-
-Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, : font
-family not found in Windows font database
-
-Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, : font
-family not found in Windows font database
-
-Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, : font
-family not found in Windows font database
-
-Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, : font
-family not found in Windows font database
-
-Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, : font
-family not found in Windows font database
-
-Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, : font
-family not found in Windows font database
-
-Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, : font
-family not found in Windows font database
-
-Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, : font
-family not found in Windows font database
-
-Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, : font
-family not found in Windows font database</code></pre>
-</div>
-<div class="cell-output cell-output-stderr">
-<pre><code>Warning in grid.Call.graphics(C_text, as.graphicsAnnot(x$label), x$x, x$y, :
-font family not found in Windows font database</code></pre>
-</div>
-<div class="cell-output cell-output-stderr">
-<pre><code>Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, : font
-family not found in Windows font database
-
-Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, : font
-family not found in Windows font database
-
-Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, : font
-family not found in Windows font database</code></pre>
-</div>
 <div class="cell-output-display">
 <p><img src="mapProject_files/figure-html/unnamed-chunk-4-1.png" class="img-fluid" width="672"></p>
 </div>
 </div>
 <p>We can see that states like Maryland and Washington had a greater yearly income for 2017 while states like Alabama and West Virginia were not as fortuitous. It’s interesting how states like Maryland and Virginia are doing well while their neighbors are all on the other end of the spectrum. One other thing to note is that the Southeast US tended to earn less than most other regions.</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb12"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a><span class="co"># summary of the 8 congressional Wisconsin districts and the 2016 voting</span></span>
-<span id="cb12-2"><a href="#cb12-2" aria-hidden="true" tabindex="-1"></a>district_elections <span class="ot">&lt;-</span> results_house <span class="sc">|&gt;</span></span>
-<span id="cb12-3"><a href="#cb12-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">district =</span> <span class="fu">parse_number</span>(district_id)) <span class="sc">|&gt;</span></span>
-<span id="cb12-4"><a href="#cb12-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">group_by</span>(state, district) <span class="sc">|&gt;</span></span>
-<span id="cb12-5"><a href="#cb12-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">summarize</span>(</span>
-<span id="cb12-6"><a href="#cb12-6" aria-hidden="true" tabindex="-1"></a>    <span class="at">N =</span> <span class="fu">n</span>(), </span>
-<span id="cb12-7"><a href="#cb12-7" aria-hidden="true" tabindex="-1"></a>    <span class="at">total_votes =</span> <span class="fu">sum</span>(general_votes, <span class="at">na.rm =</span> <span class="cn">TRUE</span>),</span>
-<span id="cb12-8"><a href="#cb12-8" aria-hidden="true" tabindex="-1"></a>    <span class="at">d_votes =</span> <span class="fu">sum</span>(<span class="fu">ifelse</span>(party <span class="sc">==</span> <span class="st">"DEM"</span>, general_votes, <span class="dv">0</span>), <span class="at">na.rm =</span> <span class="cn">TRUE</span>),</span>
-<span id="cb12-9"><a href="#cb12-9" aria-hidden="true" tabindex="-1"></a>    <span class="co">#we add together all the votes for democrats in the district</span></span>
-<span id="cb12-10"><a href="#cb12-10" aria-hidden="true" tabindex="-1"></a>    <span class="at">r_votes =</span> <span class="fu">sum</span>(<span class="fu">ifelse</span>(party <span class="sc">==</span> <span class="st">"REP"</span>, general_votes, <span class="dv">0</span>), <span class="at">na.rm =</span> <span class="cn">TRUE</span>),</span>
-<span id="cb12-11"><a href="#cb12-11" aria-hidden="true" tabindex="-1"></a>    <span class="co">#same but with only republicans</span></span>
-<span id="cb12-12"><a href="#cb12-12" aria-hidden="true" tabindex="-1"></a>    <span class="at">.groups =</span> <span class="st">"drop"</span></span>
-<span id="cb12-13"><a href="#cb12-13" aria-hidden="true" tabindex="-1"></a>  ) <span class="sc">|&gt;</span></span>
-<span id="cb12-14"><a href="#cb12-14" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(</span>
-<span id="cb12-15"><a href="#cb12-15" aria-hidden="true" tabindex="-1"></a>    <span class="at">other_votes =</span> total_votes <span class="sc">-</span> d_votes <span class="sc">-</span> r_votes,</span>
-<span id="cb12-16"><a href="#cb12-16" aria-hidden="true" tabindex="-1"></a>    <span class="at">r_prop =</span> r_votes <span class="sc">/</span> total_votes,  </span>
-<span id="cb12-17"><a href="#cb12-17" aria-hidden="true" tabindex="-1"></a>    <span class="at">winner =</span> <span class="fu">ifelse</span>(r_votes <span class="sc">&gt;</span> d_votes, <span class="st">"Republican"</span>, <span class="st">"Democrat"</span>)</span>
-<span id="cb12-18"><a href="#cb12-18" aria-hidden="true" tabindex="-1"></a>  )</span>
-<span id="cb12-19"><a href="#cb12-19" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb12-20"><a href="#cb12-20" aria-hidden="true" tabindex="-1"></a>wi_results <span class="ot">&lt;-</span> district_elections <span class="sc">|&gt;</span></span>
-<span id="cb12-21"><a href="#cb12-21" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(state <span class="sc">==</span> <span class="st">"WI"</span>)</span>
-<span id="cb12-22"><a href="#cb12-22" aria-hidden="true" tabindex="-1"></a>wi_results <span class="sc">|&gt;</span>                  </span>
-<span id="cb12-23"><a href="#cb12-23" aria-hidden="true" tabindex="-1"></a>  <span class="fu">select</span>(<span class="sc">-</span>state)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stdout">
-<pre><code># A tibble: 8 × 8
-  district     N total_votes d_votes r_votes other_votes r_prop winner    
-     &lt;dbl&gt; &lt;int&gt;       &lt;dbl&gt;   &lt;dbl&gt;   &lt;dbl&gt;       &lt;dbl&gt;  &lt;dbl&gt; &lt;chr&gt;     
-1        1     7      353990  107003  230072       16915  0.650 Republican
-2        2     2      397581  273537  124044           0  0.312 Democrat  
-3        3     2      257401  257401       0           0  0     Democrat  
-4        4     4      285858  220181       0       65677  0     Democrat  
-5        5     3      390507  114477  260706       15324  0.668 Republican
-6        6     4      356935  133072  204147       19716  0.572 Republican
-7        7     4      362061  138643  223418           0  0.617 Republican
-8        8     4      363574  135682  227892           0  0.627 Republican</code></pre>
-</div>
+<div class="sourceCode cell-code" id="cb6"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="co"># summary of the 8 congressional Wisconsin districts and the 2016 voting</span></span>
+<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a>district_elections <span class="ot">&lt;-</span> results_house <span class="sc">|&gt;</span></span>
+<span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">district =</span> <span class="fu">parse_number</span>(district_id)) <span class="sc">|&gt;</span></span>
+<span id="cb6-4"><a href="#cb6-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">group_by</span>(state, district) <span class="sc">|&gt;</span></span>
+<span id="cb6-5"><a href="#cb6-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">summarize</span>(</span>
+<span id="cb6-6"><a href="#cb6-6" aria-hidden="true" tabindex="-1"></a>    <span class="at">N =</span> <span class="fu">n</span>(), </span>
+<span id="cb6-7"><a href="#cb6-7" aria-hidden="true" tabindex="-1"></a>    <span class="at">total_votes =</span> <span class="fu">sum</span>(general_votes, <span class="at">na.rm =</span> <span class="cn">TRUE</span>),</span>
+<span id="cb6-8"><a href="#cb6-8" aria-hidden="true" tabindex="-1"></a>    <span class="at">d_votes =</span> <span class="fu">sum</span>(<span class="fu">ifelse</span>(party <span class="sc">==</span> <span class="st">"DEM"</span>, general_votes, <span class="dv">0</span>), <span class="at">na.rm =</span> <span class="cn">TRUE</span>),</span>
+<span id="cb6-9"><a href="#cb6-9" aria-hidden="true" tabindex="-1"></a>    <span class="co">#we add together all the votes for democrats in the district</span></span>
+<span id="cb6-10"><a href="#cb6-10" aria-hidden="true" tabindex="-1"></a>    <span class="at">r_votes =</span> <span class="fu">sum</span>(<span class="fu">ifelse</span>(party <span class="sc">==</span> <span class="st">"REP"</span>, general_votes, <span class="dv">0</span>), <span class="at">na.rm =</span> <span class="cn">TRUE</span>),</span>
+<span id="cb6-11"><a href="#cb6-11" aria-hidden="true" tabindex="-1"></a>    <span class="co">#same but with only republicans</span></span>
+<span id="cb6-12"><a href="#cb6-12" aria-hidden="true" tabindex="-1"></a>    <span class="at">.groups =</span> <span class="st">"drop"</span></span>
+<span id="cb6-13"><a href="#cb6-13" aria-hidden="true" tabindex="-1"></a>  ) <span class="sc">|&gt;</span></span>
+<span id="cb6-14"><a href="#cb6-14" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(</span>
+<span id="cb6-15"><a href="#cb6-15" aria-hidden="true" tabindex="-1"></a>    <span class="at">other_votes =</span> total_votes <span class="sc">-</span> d_votes <span class="sc">-</span> r_votes,</span>
+<span id="cb6-16"><a href="#cb6-16" aria-hidden="true" tabindex="-1"></a>    <span class="at">r_prop =</span> r_votes <span class="sc">/</span> total_votes,  </span>
+<span id="cb6-17"><a href="#cb6-17" aria-hidden="true" tabindex="-1"></a>    <span class="at">winner =</span> <span class="fu">ifelse</span>(r_votes <span class="sc">&gt;</span> d_votes, <span class="st">"Republican"</span>, <span class="st">"Democrat"</span>)</span>
+<span id="cb6-18"><a href="#cb6-18" aria-hidden="true" tabindex="-1"></a>  )</span>
+<span id="cb6-19"><a href="#cb6-19" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-20"><a href="#cb6-20" aria-hidden="true" tabindex="-1"></a>wi_results <span class="ot">&lt;-</span> district_elections <span class="sc">|&gt;</span></span>
+<span id="cb6-21"><a href="#cb6-21" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(state <span class="sc">==</span> <span class="st">"WI"</span>)</span>
+<span id="cb6-22"><a href="#cb6-22" aria-hidden="true" tabindex="-1"></a>wi_results <span class="sc">|&gt;</span>                  </span>
+<span id="cb6-23"><a href="#cb6-23" aria-hidden="true" tabindex="-1"></a>  <span class="fu">select</span>(<span class="sc">-</span>state)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb14"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Download congressional district shapefiles </span></span>
-<span id="cb14-2"><a href="#cb14-2" aria-hidden="true" tabindex="-1"></a><span class="fu">options</span>(<span class="at">timeout =</span> <span class="dv">200</span>)</span>
-<span id="cb14-3"><a href="#cb14-3" aria-hidden="true" tabindex="-1"></a>src <span class="ot">&lt;-</span> <span class="st">"http://cdmaps.polisci.ucla.edu/shp/districts113.zip"</span></span>
-<span id="cb14-4"><a href="#cb14-4" aria-hidden="true" tabindex="-1"></a>lcl_zip <span class="ot">&lt;-</span> fs<span class="sc">::</span><span class="fu">path</span>(<span class="fu">tempdir</span>(), <span class="st">"districts113.zip"</span>)</span>
-<span id="cb14-5"><a href="#cb14-5" aria-hidden="true" tabindex="-1"></a><span class="fu">download.file</span>(src, <span class="at">destfile =</span> lcl_zip)</span>
-<span id="cb14-6"><a href="#cb14-6" aria-hidden="true" tabindex="-1"></a>lcl_districts <span class="ot">&lt;-</span> fs<span class="sc">::</span><span class="fu">path</span>(<span class="fu">tempdir</span>(), <span class="st">"districts113"</span>)</span>
-<span id="cb14-7"><a href="#cb14-7" aria-hidden="true" tabindex="-1"></a><span class="fu">unzip</span>(lcl_zip, <span class="at">exdir =</span> lcl_districts)</span>
-<span id="cb14-8"><a href="#cb14-8" aria-hidden="true" tabindex="-1"></a>dsn_districts <span class="ot">&lt;-</span> fs<span class="sc">::</span><span class="fu">path</span>(lcl_districts, <span class="st">"districtShapes"</span>)</span>
-<span id="cb14-9"><a href="#cb14-9" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb14-10"><a href="#cb14-10" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb14-11"><a href="#cb14-11" aria-hidden="true" tabindex="-1"></a><span class="co"># read shapefiles into R as an sf object</span></span>
-<span id="cb14-12"><a href="#cb14-12" aria-hidden="true" tabindex="-1"></a><span class="fu">st_layers</span>(dsn_districts)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stdout">
-<pre><code>Driver: ESRI Shapefile 
-Available layers:
-    layer_name geometry_type features fields crs_name
-1 districts113       Polygon      436     15    NAD83</code></pre>
-</div>
-<div class="sourceCode cell-code" id="cb16"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true" tabindex="-1"></a><span class="co"># be able to read as a data frame as well</span></span>
-<span id="cb16-2"><a href="#cb16-2" aria-hidden="true" tabindex="-1"></a>districts <span class="ot">&lt;-</span> <span class="fu">st_read</span>(dsn_districts, <span class="at">layer =</span> <span class="st">"districts113"</span>) <span class="sc">|&gt;</span></span>
-<span id="cb16-3"><a href="#cb16-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">DISTRICT =</span> <span class="fu">parse_number</span>(<span class="fu">as.character</span>(DISTRICT)))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stdout">
-<pre><code>Reading layer `districts113' from data source 
-  `C:\Users\colec\AppData\Local\Temp\RtmpCmxBLS\districts113\districtShapes' 
-  using driver `ESRI Shapefile'
-Simple feature collection with 436 features and 15 fields (with 1 geometry empty)
-Geometry type: MULTIPOLYGON
-Dimension:     XY
-Bounding box:  xmin: -179.1473 ymin: 18.91383 xmax: 179.7785 ymax: 71.35256
-Geodetic CRS:  NAD83</code></pre>
-</div>
-<div class="sourceCode cell-code" id="cb18"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb18-1"><a href="#cb18-1" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(districts, <span class="at">width =</span> <span class="cn">Inf</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stdout">
-<pre><code>Simple feature collection with 6 features and 15 fields
-Geometry type: MULTIPOLYGON
-Dimension:     XY
-Bounding box:  xmin: -91.82307 ymin: 29.41135 xmax: -66.94983 ymax: 47.45969
-Geodetic CRS:  NAD83
-  STATENAME           ID DISTRICT STARTCONG ENDCONG DISTRICTSI COUNTY PAGE  LAW
-1 Louisiana 022113114006        6       113     114       &lt;NA&gt;   &lt;NA&gt; &lt;NA&gt; &lt;NA&gt;
-2     Maine 023113114001        1       113     114       &lt;NA&gt;   &lt;NA&gt; &lt;NA&gt; &lt;NA&gt;
-3     Maine 023113114002        2       113     114       &lt;NA&gt;   &lt;NA&gt; &lt;NA&gt; &lt;NA&gt;
-4  Maryland 024113114001        1       113     114       &lt;NA&gt;   &lt;NA&gt; &lt;NA&gt; &lt;NA&gt;
-5  Maryland 024113114002        2       113     114       &lt;NA&gt;   &lt;NA&gt; &lt;NA&gt; &lt;NA&gt;
-6  Maryland 024113114003        3       113     114       &lt;NA&gt;   &lt;NA&gt; &lt;NA&gt; &lt;NA&gt;
-  NOTE BESTDEC                  FINALNOTE RNOTE                 LASTCHANGE
-1 &lt;NA&gt;    &lt;NA&gt; {"From US Census website"}  &lt;NA&gt; 2016-05-29 16:44:10.857626
-2 &lt;NA&gt;    &lt;NA&gt; {"From US Census website"}  &lt;NA&gt; 2016-05-29 16:44:10.857626
-3 &lt;NA&gt;    &lt;NA&gt; {"From US Census website"}  &lt;NA&gt; 2016-05-29 16:44:10.857626
-4 &lt;NA&gt;    &lt;NA&gt; {"From US Census website"}  &lt;NA&gt; 2016-05-29 16:44:10.857626
-5 &lt;NA&gt;    &lt;NA&gt; {"From US Census website"}  &lt;NA&gt; 2016-05-29 16:44:10.857626
-6 &lt;NA&gt;    &lt;NA&gt; {"From US Census website"}  &lt;NA&gt; 2016-05-29 16:44:10.857626
-  FROMCOUNTY                       geometry
-1          F MULTIPOLYGON (((-91.82288 3...
-2          F MULTIPOLYGON (((-70.98905 4...
-3          F MULTIPOLYGON (((-71.08216 4...
-4          F MULTIPOLYGON (((-77.31156 3...
-5          F MULTIPOLYGON (((-76.8763 39...
-6          F MULTIPOLYGON (((-77.15622 3...</code></pre>
-</div>
-<div class="sourceCode cell-code" id="cb20"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb20-1"><a href="#cb20-1" aria-hidden="true" tabindex="-1"></a><span class="fu">class</span>(districts)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stdout">
-<pre><code>[1] "sf"         "data.frame"</code></pre>
-</div>
-<div class="sourceCode cell-code" id="cb22"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb22-1"><a href="#cb22-1" aria-hidden="true" tabindex="-1"></a><span class="do">#####################################</span></span>
-<span id="cb22-2"><a href="#cb22-2" aria-hidden="true" tabindex="-1"></a><span class="co"># create basic plot with Wisconsin congressional districts</span></span>
-<span id="cb22-3"><a href="#cb22-3" aria-hidden="true" tabindex="-1"></a>wi_shp <span class="ot">&lt;-</span> districts <span class="sc">|&gt;</span></span>
-<span id="cb22-4"><a href="#cb22-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(STATENAME <span class="sc">==</span> <span class="st">"Wisconsin"</span>)</span>
-<span id="cb22-5"><a href="#cb22-5" aria-hidden="true" tabindex="-1"></a>wi_shp <span class="sc">|&gt;</span></span>
-<span id="cb22-6"><a href="#cb22-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">st_geometry</span>() <span class="sc">|&gt;</span></span>
-<span id="cb22-7"><a href="#cb22-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">plot</span>(<span class="at">col =</span> <span class="fu">gray.colors</span>(<span class="fu">nrow</span>(wi_shp)))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output-display">
-<p><img src="mapProject_files/figure-html/unnamed-chunk-6-1.png" class="img-fluid" width="672"></p>
-</div>
-<div class="sourceCode cell-code" id="cb23"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb23-1"><a href="#cb23-1" aria-hidden="true" tabindex="-1"></a>wi_merged <span class="ot">&lt;-</span> wi_shp <span class="sc">|&gt;</span></span>
-<span id="cb23-2"><a href="#cb23-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">st_transform</span>(<span class="dv">4326</span>) <span class="sc">|&gt;</span></span>
-<span id="cb23-3"><a href="#cb23-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">inner_join</span>(wi_results, <span class="at">by =</span> <span class="fu">c</span>(<span class="st">"DISTRICT"</span> <span class="ot">=</span> <span class="st">"district"</span>))</span>
-<span id="cb23-4"><a href="#cb23-4" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(wi_merged, <span class="at">width =</span> <span class="cn">Inf</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stdout">
-<pre><code>Simple feature collection with 6 features and 23 fields
-Geometry type: MULTIPOLYGON
-Dimension:     XY
-Bounding box:  xmin: -92.808 ymin: 42.49198 xmax: -87.50719 ymax: 45.20957
-Geodetic CRS:  WGS 84
-  STATENAME           ID DISTRICT STARTCONG ENDCONG DISTRICTSI COUNTY PAGE  LAW
-1 Wisconsin 055113114001        1       113     114       &lt;NA&gt;   &lt;NA&gt; &lt;NA&gt; &lt;NA&gt;
-2 Wisconsin 055113114002        2       113     114       &lt;NA&gt;   &lt;NA&gt; &lt;NA&gt; &lt;NA&gt;
-3 Wisconsin 055113114003        3       113     114       &lt;NA&gt;   &lt;NA&gt; &lt;NA&gt; &lt;NA&gt;
-4 Wisconsin 055113114004        4       113     114       &lt;NA&gt;   &lt;NA&gt; &lt;NA&gt; &lt;NA&gt;
-5 Wisconsin 055113114005        5       113     114       &lt;NA&gt;   &lt;NA&gt; &lt;NA&gt; &lt;NA&gt;
-6 Wisconsin 055113114006        6       113     114       &lt;NA&gt;   &lt;NA&gt; &lt;NA&gt; &lt;NA&gt;
-  NOTE BESTDEC                  FINALNOTE RNOTE                 LASTCHANGE
-1 &lt;NA&gt;    &lt;NA&gt; {"From US Census website"}  &lt;NA&gt; 2016-05-29 16:44:10.857626
-2 &lt;NA&gt;    &lt;NA&gt; {"From US Census website"}  &lt;NA&gt; 2016-05-29 16:44:10.857626
-3 &lt;NA&gt;    &lt;NA&gt; {"From US Census website"}  &lt;NA&gt; 2016-05-29 16:44:10.857626
-4 &lt;NA&gt;    &lt;NA&gt; {"From US Census website"}  &lt;NA&gt; 2016-05-29 16:44:10.857626
-5 &lt;NA&gt;    &lt;NA&gt; {"From US Census website"}  &lt;NA&gt; 2016-05-29 16:44:10.857626
-6 &lt;NA&gt;    &lt;NA&gt; {"From US Census website"}  &lt;NA&gt; 2016-05-29 16:44:10.857626
-  FROMCOUNTY state N total_votes d_votes r_votes other_votes    r_prop
-1          F    WI 7      353990  107003  230072       16915 0.6499393
-2          F    WI 2      397581  273537  124044           0 0.3119968
-3          F    WI 2      257401  257401       0           0 0.0000000
-4          F    WI 4      285858  220181       0       65677 0.0000000
-5          F    WI 3      390507  114477  260706       15324 0.6676090
-6          F    WI 4      356935  133072  204147       19716 0.5719445
-      winner                       geometry
-1 Republican MULTIPOLYGON (((-89.08072 4...
-2   Democrat MULTIPOLYGON (((-90.43 43.1...
-3   Democrat MULTIPOLYGON (((-91.3984 44...
-4   Democrat MULTIPOLYGON (((-88.06601 4...
-5 Republican MULTIPOLYGON (((-89.01359 4...
-6 Republican MULTIPOLYGON (((-89.78555 4...</code></pre>
-</div>
+<div class="sourceCode cell-code" id="cb7"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Download congressional district shapefiles </span></span>
+<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a><span class="fu">options</span>(<span class="at">timeout =</span> <span class="dv">200</span>)</span>
+<span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a>src <span class="ot">&lt;-</span> <span class="st">"http://cdmaps.polisci.ucla.edu/shp/districts113.zip"</span></span>
+<span id="cb7-4"><a href="#cb7-4" aria-hidden="true" tabindex="-1"></a>lcl_zip <span class="ot">&lt;-</span> fs<span class="sc">::</span><span class="fu">path</span>(<span class="fu">tempdir</span>(), <span class="st">"districts113.zip"</span>)</span>
+<span id="cb7-5"><a href="#cb7-5" aria-hidden="true" tabindex="-1"></a><span class="fu">download.file</span>(src, <span class="at">destfile =</span> lcl_zip)</span>
+<span id="cb7-6"><a href="#cb7-6" aria-hidden="true" tabindex="-1"></a>lcl_districts <span class="ot">&lt;-</span> fs<span class="sc">::</span><span class="fu">path</span>(<span class="fu">tempdir</span>(), <span class="st">"districts113"</span>)</span>
+<span id="cb7-7"><a href="#cb7-7" aria-hidden="true" tabindex="-1"></a><span class="fu">unzip</span>(lcl_zip, <span class="at">exdir =</span> lcl_districts)</span>
+<span id="cb7-8"><a href="#cb7-8" aria-hidden="true" tabindex="-1"></a>dsn_districts <span class="ot">&lt;-</span> fs<span class="sc">::</span><span class="fu">path</span>(lcl_districts, <span class="st">"districtShapes"</span>)</span>
+<span id="cb7-9"><a href="#cb7-9" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-10"><a href="#cb7-10" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-11"><a href="#cb7-11" aria-hidden="true" tabindex="-1"></a><span class="co"># read shapefiles into R as an sf object</span></span>
+<span id="cb7-12"><a href="#cb7-12" aria-hidden="true" tabindex="-1"></a><span class="fu">st_layers</span>(dsn_districts)</span>
+<span id="cb7-13"><a href="#cb7-13" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-14"><a href="#cb7-14" aria-hidden="true" tabindex="-1"></a><span class="co"># be able to read as a data frame as well</span></span>
+<span id="cb7-15"><a href="#cb7-15" aria-hidden="true" tabindex="-1"></a>districts <span class="ot">&lt;-</span> <span class="fu">st_read</span>(dsn_districts, <span class="at">layer =</span> <span class="st">"districts113"</span>) <span class="sc">|&gt;</span></span>
+<span id="cb7-16"><a href="#cb7-16" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">DISTRICT =</span> <span class="fu">parse_number</span>(<span class="fu">as.character</span>(DISTRICT)))</span>
+<span id="cb7-17"><a href="#cb7-17" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(districts, <span class="at">width =</span> <span class="cn">Inf</span>)</span>
+<span id="cb7-18"><a href="#cb7-18" aria-hidden="true" tabindex="-1"></a><span class="fu">class</span>(districts)</span>
+<span id="cb7-19"><a href="#cb7-19" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-20"><a href="#cb7-20" aria-hidden="true" tabindex="-1"></a><span class="do">#####################################</span></span>
+<span id="cb7-21"><a href="#cb7-21" aria-hidden="true" tabindex="-1"></a><span class="co"># create basic plot with Wisconsin congressional districts</span></span>
+<span id="cb7-22"><a href="#cb7-22" aria-hidden="true" tabindex="-1"></a>wi_shp <span class="ot">&lt;-</span> districts <span class="sc">|&gt;</span></span>
+<span id="cb7-23"><a href="#cb7-23" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(STATENAME <span class="sc">==</span> <span class="st">"Wisconsin"</span>)</span>
+<span id="cb7-24"><a href="#cb7-24" aria-hidden="true" tabindex="-1"></a>wi_shp <span class="sc">|&gt;</span></span>
+<span id="cb7-25"><a href="#cb7-25" aria-hidden="true" tabindex="-1"></a>  <span class="fu">st_geometry</span>() <span class="sc">|&gt;</span></span>
+<span id="cb7-26"><a href="#cb7-26" aria-hidden="true" tabindex="-1"></a>  <span class="fu">plot</span>(<span class="at">col =</span> <span class="fu">gray.colors</span>(<span class="fu">nrow</span>(wi_shp)))</span>
+<span id="cb7-27"><a href="#cb7-27" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-28"><a href="#cb7-28" aria-hidden="true" tabindex="-1"></a>wi_merged <span class="ot">&lt;-</span> wi_shp <span class="sc">|&gt;</span></span>
+<span id="cb7-29"><a href="#cb7-29" aria-hidden="true" tabindex="-1"></a>  <span class="fu">st_transform</span>(<span class="dv">4326</span>) <span class="sc">|&gt;</span></span>
+<span id="cb7-30"><a href="#cb7-30" aria-hidden="true" tabindex="-1"></a>  <span class="fu">inner_join</span>(wi_results, <span class="at">by =</span> <span class="fu">c</span>(<span class="st">"DISTRICT"</span> <span class="ot">=</span> <span class="st">"district"</span>))</span>
+<span id="cb7-31"><a href="#cb7-31" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(wi_merged, <span class="at">width =</span> <span class="cn">Inf</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb25"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb25-1"><a href="#cb25-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Color based on winning party</span></span>
-<span id="cb25-2"><a href="#cb25-2" aria-hidden="true" tabindex="-1"></a><span class="co">#   Note that geom_sf is part of ggplot2 package, while st_geometry is</span></span>
-<span id="cb25-3"><a href="#cb25-3" aria-hidden="true" tabindex="-1"></a><span class="co">#   part of sf package</span></span>
-<span id="cb25-4"><a href="#cb25-4" aria-hidden="true" tabindex="-1"></a>wi <span class="ot">&lt;-</span> <span class="fu">ggplot</span>(<span class="at">data =</span> wi_merged, <span class="fu">aes</span>(<span class="at">fill =</span> winner)) <span class="sc">+</span></span>
-<span id="cb25-5"><a href="#cb25-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">annotation_map_tile</span>(<span class="at">zoom =</span> <span class="dv">6</span>, <span class="at">type =</span> <span class="st">"osm"</span>, <span class="at">progress =</span> <span class="st">"none"</span>) <span class="sc">+</span> </span>
-<span id="cb25-6"><a href="#cb25-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_sf</span>(<span class="at">alpha =</span> <span class="fl">0.5</span>) <span class="sc">+</span></span>
-<span id="cb25-7"><a href="#cb25-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_fill_manual</span>(<span class="st">"Winning Party"</span>, <span class="at">values =</span> <span class="fu">c</span>(<span class="st">"blue"</span>, <span class="st">"red"</span>)) <span class="sc">+</span> </span>
-<span id="cb25-8"><a href="#cb25-8" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_sf_label</span>(<span class="fu">aes</span>(<span class="at">label =</span> DISTRICT), <span class="at">fill =</span> <span class="st">"white"</span>) <span class="sc">+</span> </span>
-<span id="cb25-9"><a href="#cb25-9" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_void</span>() <span class="sc">+</span></span>
-<span id="cb25-10"><a href="#cb25-10" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">title =</span> <span class="st">"Winners of Wisconsin's Eight Congressional Districts cir. 2016"</span>)</span>
-<span id="cb25-11"><a href="#cb25-11" aria-hidden="true" tabindex="-1"></a>wi</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stderr">
-<pre><code>Warning in st_point_on_surface.sfc(sf::st_zm(x)): st_point_on_surface may not
-give correct results for longitude/latitude data</code></pre>
-</div>
-<div class="cell-output cell-output-stderr">
-<pre><code>Loading required namespace: raster</code></pre>
-</div>
-<div class="cell-output-display">
-<p><img src="mapProject_files/figure-html/unnamed-chunk-7-1.png" class="img-fluid" width="672"></p>
-</div>
-<div class="sourceCode cell-code" id="cb28"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb28-1"><a href="#cb28-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Color based on proportion Rep.  Be sure to let limits so centered at 0.5.</span></span>
-<span id="cb28-2"><a href="#cb28-2" aria-hidden="true" tabindex="-1"></a><span class="co"># This is a choropleth map, where meaningful shading relates to some attribute</span></span>
-<span id="cb28-3"><a href="#cb28-3" aria-hidden="true" tabindex="-1"></a>wi <span class="sc">+</span></span>
-<span id="cb28-4"><a href="#cb28-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">aes</span>(<span class="at">fill =</span> r_prop) <span class="sc">+</span> </span>
-<span id="cb28-5"><a href="#cb28-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_fill_distiller</span>(</span>
-<span id="cb28-6"><a href="#cb28-6" aria-hidden="true" tabindex="-1"></a>    <span class="st">"Proportion</span><span class="sc">\n</span><span class="st">Republican"</span>, </span>
-<span id="cb28-7"><a href="#cb28-7" aria-hidden="true" tabindex="-1"></a>    <span class="at">palette =</span> <span class="st">"RdBu"</span>, </span>
-<span id="cb28-8"><a href="#cb28-8" aria-hidden="true" tabindex="-1"></a>    <span class="at">limits =</span> <span class="fu">c</span>(<span class="dv">0</span>, <span class="dv">1</span>)</span>
-<span id="cb28-9"><a href="#cb28-9" aria-hidden="true" tabindex="-1"></a>  )</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stderr">
-<pre><code>Scale for fill is already present.
-Adding another scale for fill, which will replace the existing scale.</code></pre>
-</div>
-<div class="cell-output cell-output-stderr">
-<pre><code>Warning in st_point_on_surface.sfc(sf::st_zm(x)): st_point_on_surface may not
-give correct results for longitude/latitude data</code></pre>
-</div>
-<div class="cell-output-display">
-<p><img src="mapProject_files/figure-html/unnamed-chunk-7-2.png" class="img-fluid" width="672"></p>
-</div>
+<div class="sourceCode cell-code" id="cb8"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Color based on winning party</span></span>
+<span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a><span class="co">#   Note that geom_sf is part of ggplot2 package, while st_geometry is</span></span>
+<span id="cb8-3"><a href="#cb8-3" aria-hidden="true" tabindex="-1"></a><span class="co">#   part of sf package</span></span>
+<span id="cb8-4"><a href="#cb8-4" aria-hidden="true" tabindex="-1"></a>wi <span class="ot">&lt;-</span> <span class="fu">ggplot</span>(<span class="at">data =</span> wi_merged, <span class="fu">aes</span>(<span class="at">fill =</span> winner)) <span class="sc">+</span></span>
+<span id="cb8-5"><a href="#cb8-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">annotation_map_tile</span>(<span class="at">zoom =</span> <span class="dv">6</span>, <span class="at">type =</span> <span class="st">"osm"</span>, <span class="at">progress =</span> <span class="st">"none"</span>) <span class="sc">+</span> </span>
+<span id="cb8-6"><a href="#cb8-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_sf</span>(<span class="at">alpha =</span> <span class="fl">0.5</span>) <span class="sc">+</span></span>
+<span id="cb8-7"><a href="#cb8-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_fill_manual</span>(<span class="st">"Winning Party"</span>, <span class="at">values =</span> <span class="fu">c</span>(<span class="st">"blue"</span>, <span class="st">"red"</span>)) <span class="sc">+</span> </span>
+<span id="cb8-8"><a href="#cb8-8" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_sf_label</span>(<span class="fu">aes</span>(<span class="at">label =</span> DISTRICT), <span class="at">fill =</span> <span class="st">"white"</span>) <span class="sc">+</span> </span>
+<span id="cb8-9"><a href="#cb8-9" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_void</span>() <span class="sc">+</span></span>
+<span id="cb8-10"><a href="#cb8-10" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">title =</span> <span class="st">"Winners of Wisconsin's Eight Congressional Districts cir. 2016"</span>)</span>
+<span id="cb8-11"><a href="#cb8-11" aria-hidden="true" tabindex="-1"></a>wi</span>
+<span id="cb8-12"><a href="#cb8-12" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-13"><a href="#cb8-13" aria-hidden="true" tabindex="-1"></a><span class="co"># Color based on proportion Rep.  Be sure to let limits so centered at 0.5.</span></span>
+<span id="cb8-14"><a href="#cb8-14" aria-hidden="true" tabindex="-1"></a><span class="co"># This is a choropleth map, where meaningful shading relates to some attribute</span></span>
+<span id="cb8-15"><a href="#cb8-15" aria-hidden="true" tabindex="-1"></a>wi <span class="sc">+</span></span>
+<span id="cb8-16"><a href="#cb8-16" aria-hidden="true" tabindex="-1"></a>  <span class="fu">aes</span>(<span class="at">fill =</span> r_prop) <span class="sc">+</span> </span>
+<span id="cb8-17"><a href="#cb8-17" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_fill_distiller</span>(</span>
+<span id="cb8-18"><a href="#cb8-18" aria-hidden="true" tabindex="-1"></a>    <span class="st">"Proportion</span><span class="sc">\n</span><span class="st">Republican"</span>, </span>
+<span id="cb8-19"><a href="#cb8-19" aria-hidden="true" tabindex="-1"></a>    <span class="at">palette =</span> <span class="st">"RdBu"</span>, </span>
+<span id="cb8-20"><a href="#cb8-20" aria-hidden="true" tabindex="-1"></a>    <span class="at">limits =</span> <span class="fu">c</span>(<span class="dv">0</span>, <span class="dv">1</span>)</span>
+<span id="cb8-21"><a href="#cb8-21" aria-hidden="true" tabindex="-1"></a>  )</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p>From this map, we can see that quite a few districts (like 2, 3, and 4) definitely contain a strong democratic population, while the districts that are more in the middle (like 1, 7 and 8) are just ever so slightly right leaning. For a party wanting to gerrymander, you would need to group all your opponent’s voters in a select few borders so that their votes go towards an overwhelming victory in those areas, while yours are spread around so that you use your total voters strategically, just barely pulling off a win. With this map, I can definitely understand the argument that Republicans have lopsided control of the state, since it seems like what few Democratic victories there are have very little Republican pushback.</p>
 

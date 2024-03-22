@@ -10,7 +10,9 @@ website:
       - href: index.qmd
         text: Home
       - href: mapProject.qmd
-        text: Project
+        text: Project 1
+      - href: simulationProject.qmd
+        text: Project 2
       
 page-footer:
     left: |
