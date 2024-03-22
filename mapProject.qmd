@@ -143,3 +143,6 @@ wi +
 ```
 
 From this map, we can see that quite a few districts (like 2, 3, and 4) definitely contain a strong democratic population, while the districts that are more in the middle (like 1, 7 and 8) are just ever so slightly right leaning. For a party wanting to gerrymander, you would need to group all your opponent's voters in a select few borders so that their votes go towards an overwhelming victory in those areas, while yours are spread around so that you use your total voters strategically, just barely pulling off a win. With this map, I can definitely understand the argument that Republicans have lopsided control of the state, since it seems like what few Democratic victories there are have very little Republican pushback.
+
+
+
