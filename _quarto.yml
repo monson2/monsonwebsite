@@ -13,6 +13,8 @@ website:
         text: Project 1
       - href: simulationProject.qmd
         text: Project 2
+      - href: textProject.qmd
+        text: Project 3
       
 page-footer:
     left: |
