@@ -1,0 +1,82 @@
+---
+name: Cole Monson
+date: "`r format(Sys.time(), '%B, %Y')`"
+position: Student at St. Olaf College
+address: Northfield, Minnesota
+email: colecam22@gmail.com
+github: monson2
+linkedin: cole-monson-670434263
+headcolor: "414141"
+output: 
+  vitae::awesomecv:
+    keep_tex: true
+---
+
+```{r setup, include=FALSE}
+library(tidyverse)
+library(vitae)
+knitr::opts_chunk$set(echo = FALSE)
+```
+
+# Employment
+
+```{r consulting}
+tribble(
+  ~ role, ~ company, ~ loc, ~ dates, ~ details,
+  "Audio and Visual Engineer, 
+  Broadcast Director", "St. Olaf Broadcast Media", "Northfield, Minnesota", "Sep. 2021 - Present", 
+    list("Ability to communicate and collaborate with consistently changing clients, co-workers, technology, and locations",
+         "Provided balanced in-house audio/broadcast audio levels, filmed, and directed for broadcasts of live events",
+         "Patching and routing audio signals for mixing, archiving and uploading recordings using proprietary software"
+    ),
+  "Camera Operator, Broadcast Assistant", "Running Aces Casino", "Columbus, Minnesota", "Jun. 2022 - Sep. 2023", 
+    list("Involved in live harness horse racing broadcasts for in-person and livestream audiences with little room for error", 
+         "Responsible for setting up camera equipment and troubleshooting connection issues",
+         "Worked with graphical displays featuring live racing stats and replays"),
+   "Teaching Assistant, Grader", "St. Olaf MSCS Department", "Northfield, Minnesota", "Feb. 2023 - Present", list("Provided supplementary instruction for students in Data Structures and Software Design courses", "Work within strict deadlines while also having flexibility")
+  # "Data mining intern", "iSelect", "Cheltenham, Australia", "Feb. 2015 - Mar. 2015", "Improved business reporting with interactive visualisations, and model-based anomaly detection.",
+) %>% 
+  detailed_entries(role, dates, company, loc, details)
+```
+
+# Education
+
+```{r education}
+tribble(
+  ~ degree, ~ uni, ~ loc, ~ dates, ~ details,
+  
+  "High School Graduate",
+  "St. Francis High School",
+  "St. Francis, Minnesota",
+  "Sep. 2017 - Jun. 2021",
+  list("Treasurer of St. Francis Wind Ensemble, ran a variety of fundraising events",
+       "Assisted in one on one session as a math tutor"),
+  
+  "B.A. in Computer Science and Mathematics with a Concentration in Statistics and Data Science", "St. Olaf College", "Northfield, Minnesota", "Sep. 2021 - Present", 
+    list("Leader of Algorithms Club",
+         "Fellow in the Center for Interdisciplinary Research, providing consulting for quantitative research and participating in collaborative research projects",
+         "St. Olaf Band, St. Olaf Handbells, and principal player in Norseman Band, Jazz II, and Saxophone Chamber Quartet")
+  
+) %>% 
+  detailed_entries(degree, dates, uni, loc, details)
+```
+
+# Proficient Programs and Skills
+
+```{r, details, out.width=2}
+tribble( ~ details,
+         "Adobe Photoshop - DaVinci Resolve",
+         "Ableton Live -
+          Audacity - 
+         Samplitude - 
+         Avid Pro Tools",
+         "SQL - 
+         Python - 
+         C/C++ - 
+         Java - 
+         R - 
+         Github",
+         "Organized - Detail Oriented - Fast Learner") %>% 
+  detailed_entries(details)
+```
+
