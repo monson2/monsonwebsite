@@ -10,11 +10,11 @@ website:
       - href: index.qmd
         text: Home
       - href: mapProject.qmd
-        text: Project 1
+        text: Maps
       - href: simulationProject.qmd
-        text: Project 2
+        text: Simulation
       - href: textProject.qmd
-        text: Project 3
+        text: Sentiment Analysis
       
 page-footer:
     left: |

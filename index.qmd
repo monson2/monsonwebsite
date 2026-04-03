@@ -2,7 +2,7 @@
 title: "Cole Monson"
 about:
   id: intro-heading
-  template: jolla
+  template: trestles
   image: images/pfp.jpg
   image-shape: round
   links:
@@ -13,19 +13,21 @@ about:
 ---
 
 ::: {#intro-heading}
-## Cole Monson
+Hi I'm Cole, a developer interested in using data, math, and code to explore questions that don't have obvious answers. This site is a running collection of projects all built from curiosity.
 
 [he/him/his](https://pronouns.org/)
 
-Mathematics + Computer Science Major with Statistics and Data Science Concentration at St. Olaf College <br>
+Mathematics + Computer Science Major with Statistics and Data Science Concentration <br>
 
-[St. Olaf College](https://wp.stolaf.edu/)
+[St. Olaf College](https://wp.stolaf.edu/) <br>
 
 ### Cool Things I Sometimes Do
 
-A/V Engineer, Chapel Specialist \| Broadcast Media
+App Developer \| Project Friendship
 
-TA/Grader \| MSCS Department
+Sound Technician \| The Basilica of St. Mary
+
+Audio/Video Engineer, Broadcast Director \| St. Olaf Broadcast Media
 
 St. Olaf Band (Tenor Sax), St. Olaf Handbells
 :::

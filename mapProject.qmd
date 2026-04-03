@@ -2,10 +2,11 @@
 title: "Maps"
 sidebar: false
 format:
-  html: default
+  html:
+    code-fold: true
 ---
 
-```{r}
+```{r, message=FALSE, warning=FALSE, echo=FALSE}
 #| message: false
 #| warning: false
 
@@ -21,23 +22,23 @@ library(ggspatial)
 library(mdsr)      # package associated with our MDSR book
 ```
 
-```{r}
+```{r, message=FALSE, warning=FALSE, echo=FALSE}
 #| message: false
 #| warning: false
 
 library(maps)
 us_states <- map_data("state")
-head(us_states)
+#head(us_states)
 
 ```
 
-```{r}
+```{r, message=FALSE, warning=FALSE, echo=FALSE, eval=FALSE}
 #| message: false
 #| warning: false
 StatePopulation <- read.csv("https://raw.githubusercontent.com/ds4stats/r-tutorials/master/intro-maps/data/StatePopulation.csv", as.is = TRUE)
 ```
 
-```{r}
+```{r, message=FALSE, warning=FALSE, eval=FALSE}
 #| message: false
 #| warning: false
 us_rent_income |>
@@ -53,9 +54,11 @@ us_rent_income |>
   theme_mdsr()
 ```
 
+![Caption](images/usincome.png)
+
 We can see that states like Maryland and Washington had a greater yearly income for 2017 while states like Alabama and West Virginia were not as fortuitous. It's interesting how states like Maryland and Virginia are doing well while their neighbors are all on the other end of the spectrum. One other thing to note is that the Southeast US tended to earn less than most other regions.
 
-```{r}
+```{r, message=FALSE, warning=FALSE, eval=FALSE}
 
 # summary of the 8 congressional Wisconsin districts and the 2016 voting
 district_elections <- results_house |>
@@ -82,10 +85,14 @@ wi_results |>
   select(-state)
 ```
 
-```{r}
+![Caption](images/wisconsincolors.png)
+
+<!-- potentially faulty code below -->
+
+```{r, eval=FALSE}
 
 
-# Download congressional district shapefiles 
+# Download congressional district shapefiles
 options(timeout = 200)
 src <- "http://cdmaps.polisci.ucla.edu/shp/districts113.zip"
 lcl_zip <- fs::path(tempdir(), "districts113.zip")
@@ -118,17 +125,19 @@ wi_merged <- wi_shp |>
 head(wi_merged, width = Inf)
 ```
 
-```{r}
+![Caption](images/wisconsingray.png)
+
+```{r, eval=FALSE}
 
 
 # Color based on winning party
 #   Note that geom_sf is part of ggplot2 package, while st_geometry is
 #   part of sf package
 wi <- ggplot(data = wi_merged, aes(fill = winner)) +
-  annotation_map_tile(zoom = 6, type = "osm", progress = "none") + 
+  annotation_map_tile(zoom = 6, type = "osm", progress = "none") +
   geom_sf(alpha = 0.5) +
-  scale_fill_manual("Winning Party", values = c("blue", "red")) + 
-  geom_sf_label(aes(label = DISTRICT), fill = "white") + 
+  scale_fill_manual("Winning Party", values = c("blue", "red")) +
+  geom_sf_label(aes(label = DISTRICT), fill = "white") +
   theme_void() +
   labs(title = "Winners of Wisconsin's Eight Congressional Districts cir. 2016")
 wi
@@ -136,12 +145,13 @@ wi
 # Color based on proportion Rep.  Be sure to let limits so centered at 0.5.
 # This is a choropleth map, where meaningful shading relates to some attribute
 wi +
-  aes(fill = r_prop) + 
+  aes(fill = r_prop) +
   scale_fill_distiller(
-    "Proportion\nRepublican", 
-    palette = "RdBu", 
+    "Proportion\nRepublican",
+    palette = "RdBu",
     limits = c(0, 1)
   )
 ```
+![Caption](images/wisconsinprop.png)
 
 From this map, we can see that quite a few districts (like 2, 3, and 4) definitely contain a strong democratic population, while the districts that are more in the middle (like 1, 7 and 8) are just ever so slightly right leaning. For a party wanting to gerrymander, you would need to group all your opponent's voters in a select few borders so that their votes go towards an overwhelming victory in those areas, while yours are spread around so that you use your total voters strategically, just barely pulling off a win. With this map, I can definitely understand the argument that Republicans have lopsided control of the state, since it seems like what few Democratic victories there are have very little Republican pushback.
