@@ -2,12 +2,12 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
 
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.3.450">
+<meta name="generator" content="quarto-1.5.57">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>Cole Monson - Project 3</title>
+<title>Sentiment Project – Cole Monson</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -22,7 +22,7 @@ ul.task-list li input[type="checkbox"] {
 }
 /* CSS for syntax highlighting */
 pre > code.sourceCode { white-space: pre; position: relative; }
-pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span { line-height: 1.25; }
 pre > code.sourceCode > span:empty { height: 1.2em; }
 .sourceCode { overflow: visible; }
 code.sourceCode > span { color: inherit; text-decoration: inherit; }
@@ -33,7 +33,7 @@ div.sourceCode { overflow: auto; }
 }
 @media print {
 pre > code.sourceCode { white-space: pre-wrap; }
-pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+pre > code.sourceCode > span { display: inline-block; text-indent: -5em; padding-left: 5em; }
 }
 pre.numberSource code
   { counter-reset: source-line 0; }
@@ -79,7 +79,13 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   "collapse-after": 3,
   "panel-placement": "end",
   "type": "overlay",
-  "limit": 20,
+  "limit": 50,
+  "keyboard-shortcut": [
+    "f",
+    "/",
+    "s"
+  ],
+  "show-item-context": false,
   "language": {
     "search-no-results-text": "No results",
     "search-matching-documents-text": "matching documents",
@@ -88,6 +94,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     "search-more-match-text": "more match in this document",
     "search-more-matches-text": "more matches in this document",
     "search-clear-button-title": "Clear",
+    "search-text-placeholder": "",
     "search-detached-cancel-button-title": "Cancel",
     "search-submit-button-title": "Submit",
     "search-label": "Search"
@@ -102,39 +109,39 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 
 <div id="quarto-search-results"></div>
   <header id="quarto-header" class="headroom fixed-top">
-    <nav class="navbar navbar-expand-lg navbar-dark ">
+    <nav class="navbar navbar-expand-lg " data-bs-theme="dark">
       <div class="navbar-container container-fluid">
-      <div class="navbar-brand-container">
+      <div class="navbar-brand-container mx-auto">
     <a class="navbar-brand" href="./index.html">
     <span class="navbar-title">Cole Monson</span>
     </a>
   </div>
             <div id="quarto-search" class="" title="Search"></div>
-          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" role="menu" aria-expanded="false" aria-label="Toggle navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
   <span class="navbar-toggler-icon"></span>
 </button>
           <div class="collapse navbar-collapse" id="navbarCollapse">
             <ul class="navbar-nav navbar-nav-scroll me-auto">
   <li class="nav-item">
-    <a class="nav-link" href="./index.html" rel="" target="">
- <span class="menu-text">Home</span></a>
+    <a class="nav-link" href="./index.html"> 
+<span class="menu-text">Home</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link" href="./mapProject.html" rel="" target="">
- <span class="menu-text">Project 1</span></a>
+    <a class="nav-link" href="./mapProject.html"> 
+<span class="menu-text">Project 1</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link" href="./simulationProject.html" rel="" target="">
- <span class="menu-text">Project 2</span></a>
+    <a class="nav-link" href="./simulationProject.html"> 
+<span class="menu-text">Project 2</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link active" href="./textProject.html" rel="" target="" aria-current="page">
- <span class="menu-text">Project 3</span></a>
+    <a class="nav-link active" href="./textProject.html" aria-current="page"> 
+<span class="menu-text">Project 3</span></a>
   </li>  
 </ul>
-            <div class="quarto-navbar-tools ms-auto">
-</div>
           </div> <!-- /navcollapse -->
+            <div class="quarto-navbar-tools">
+</div>
       </div> <!-- /container-fluid -->
     </nav>
 </header>
@@ -148,7 +155,6 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
    
   <ul>
   <li><a href="#the-us-inaugural-corpus" id="toc-the-us-inaugural-corpus" class="nav-link active" data-scroll-target="#the-us-inaugural-corpus">The US Inaugural Corpus</a></li>
-  <li><a href="#sentiment-analysis" id="toc-sentiment-analysis" class="nav-link" data-scroll-target="#sentiment-analysis">Sentiment Analysis</a></li>
   </ul>
 </nav>
     </div>
@@ -157,7 +163,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title">Project 3</h1>
+<h1 class="title">Sentiment Project</h1>
 </div>
 
 
@@ -170,7 +176,9 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   </div>
   
 
+
 </header>
+
 
 <div class="cell">
 <div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(quanteda)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
@@ -198,12 +206,15 @@ ICU version: 74.1</code></pre>
 </div>
 <div class="sourceCode cell-code" id="cb9"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tidyverse)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stderr">
+<pre><code>Warning: package 'purrr' was built under R version 4.3.3</code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
 <pre><code>── Attaching core tidyverse packages ──────────────────────── tidyverse 2.0.0 ──
 ✔ dplyr     1.1.4     ✔ readr     2.1.5
 ✔ forcats   1.0.0     ✔ stringr   1.5.1
-✔ ggplot2   3.4.4     ✔ tibble    3.2.1
+✔ ggplot2   3.5.2     ✔ tibble    3.2.1
 ✔ lubridate 1.9.3     ✔ tidyr     1.3.1
-✔ purrr     1.0.2     </code></pre>
+✔ purrr     1.0.4     </code></pre>
 </div>
 <div class="cell-output cell-output-stderr">
 <pre><code>── Conflicts ────────────────────────────────────────── tidyverse_conflicts() ──
@@ -211,9 +222,9 @@ ICU version: 74.1</code></pre>
 ✖ dplyr::lag()    masks stats::lag()
 ℹ Use the conflicted package (&lt;http://conflicted.r-lib.org/&gt;) to force all conflicts to become errors</code></pre>
 </div>
-<div class="sourceCode cell-code" id="cb12"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(nycflights13)</span>
-<span id="cb12-2"><a href="#cb12-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(ggplot2)</span>
-<span id="cb12-3"><a href="#cb12-3" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(rvest)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb13"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(nycflights13)</span>
+<span id="cb13-2"><a href="#cb13-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(ggplot2)</span>
+<span id="cb13-3"><a href="#cb13-3" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(rvest)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stderr">
 <pre><code>
 Attaching package: 'rvest'
@@ -222,8 +233,8 @@ The following object is masked from 'package:readr':
 
     guess_encoding</code></pre>
 </div>
-<div class="sourceCode cell-code" id="cb14"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(httr)</span>
-<span id="cb14-2"><a href="#cb14-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tidytext)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb15"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(httr)</span>
+<span id="cb15-2"><a href="#cb15-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tidytext)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stderr">
 <pre><code>Warning: package 'tidytext' was built under R version 4.3.3</code></pre>
 </div>
@@ -233,10 +244,10 @@ The following object is masked from 'package:readr':
 <p>US presidential inaugural speeches serve as pivotal moments for setting the national tone, articulating priorities, and establishing a unified camaraderie as the nation embarks into a new era. Beyond their ceremonial significance, these events can be seen as historical snapshots, capturing the promises, aspirations, and challenges of the U.S. during their respective periods. With these ideas in mind, let’s look at trends in the language used and how these speeches have changed over time or by party, and eventually, run sentimental analysis on their vocabulary choices and discover what insights this can bring.</p>
 <p>Interestingly enough, there are nine speeches that don’t have a single named reference of “America” (or “american”, “americans”, etc.) within them.</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb16"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true" tabindex="-1"></a>no_merica <span class="ot">&lt;-</span> <span class="fu">is.na</span>(<span class="fu">str_extract</span>(data_corpus_inaugural, <span class="st">".merica"</span>))</span>
-<span id="cb16-2"><a href="#cb16-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb16-3"><a href="#cb16-3" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(data_corpus_inaugural) <span class="sc">|&gt;</span></span>
-<span id="cb16-4"><a href="#cb16-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(no_merica)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb17"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb17-1"><a href="#cb17-1" aria-hidden="true" tabindex="-1"></a>no_merica <span class="ot">&lt;-</span> <span class="fu">is.na</span>(<span class="fu">str_extract</span>(data_corpus_inaugural, <span class="st">".merica"</span>))</span>
+<span id="cb17-2"><a href="#cb17-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb17-3"><a href="#cb17-3" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(data_corpus_inaugural) <span class="sc">|&gt;</span></span>
+<span id="cb17-4"><a href="#cb17-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(no_merica)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>Corpus consisting of 59 documents, showing 59 documents:
 
@@ -264,10 +275,10 @@ The following object is masked from 'package:readr':
 </div>
 <p>Many of these opt to use terms like “the Nation” or “this Republic”, finding substitutes in place of name-dropping their country. However, the most recent of these took place in 1913 with Wilson’s first inaugural address, which could suggest that this practice is outdated in the modern era. Still, the fact that these former presidents were able to make a rallying cry without naming their homeland is impressive, and seems like a difficult task made even more tricky.</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb18"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb18-1"><a href="#cb18-1" aria-hidden="true" tabindex="-1"></a>ter_mentioned <span class="ot">&lt;-</span> <span class="sc">!</span><span class="fu">is.na</span>(<span class="fu">str_extract</span>(data_corpus_inaugural, <span class="st">"[Tt]error"</span>))</span>
-<span id="cb18-2"><a href="#cb18-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb18-3"><a href="#cb18-3" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(data_corpus_inaugural) <span class="sc">|&gt;</span></span>
-<span id="cb18-4"><a href="#cb18-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(ter_mentioned)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb19"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb19-1"><a href="#cb19-1" aria-hidden="true" tabindex="-1"></a>ter_mentioned <span class="ot">&lt;-</span> <span class="sc">!</span><span class="fu">is.na</span>(<span class="fu">str_extract</span>(data_corpus_inaugural, <span class="st">"[Tt]error"</span>))</span>
+<span id="cb19-2"><a href="#cb19-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb19-3"><a href="#cb19-3" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(data_corpus_inaugural) <span class="sc">|&gt;</span></span>
+<span id="cb19-4"><a href="#cb19-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(ter_mentioned)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>Corpus consisting of 59 documents, showing 59 documents:
 
@@ -285,133 +296,110 @@ The following object is masked from 'package:readr':
 </div>
 <p>We can see that outside of one mention way back in 1797, terror is largely a modern adversity for the US. Especially so in the wake of September 11th, nearly every president in recent memory has mentioned it at least once within their speeches, surprisingly however, Bush did not.</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb20"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb20-1"><a href="#cb20-1" aria-hidden="true" tabindex="-1"></a><span class="fu">str_view</span>(<span class="fu">str_extract</span>(data_corpus_inaugural[<span class="dv">3</span>], <span class="st">"</span><span class="sc">\\</span><span class="st">..*terror.*</span><span class="sc">\\</span><span class="st">."</span>), <span class="st">"terror"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb21"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb21-1"><a href="#cb21-1" aria-hidden="true" tabindex="-1"></a><span class="fu">str_view</span>(<span class="fu">str_extract</span>(data_corpus_inaugural[<span class="dv">3</span>], <span class="st">"</span><span class="sc">\\</span><span class="st">..*terror.*</span><span class="sc">\\</span><span class="st">."</span>), <span class="st">"terror"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>[1] │ . If an election is to be determined by a majority of a single vote, and that can be procured by a party through artifice or corruption, the Government may be the choice of a party for its own ends, not of the nation for the national good. If that solitary suffrage can be obtained by foreign nations by flattery or menaces, by fraud or violence, by &lt;terror&gt;, intrigue, or venality, the Government may not be the choice of the American people, but of foreign nations. It may be foreign nations who govern us, and not we, the people, who govern ourselves; and candid men will acknowledge that in such cases choice would have little advantage to boast of over lot or chance.</code></pre>
 </div>
 </div>
-<p>Here we can see Adams’ reference to terror is more in line with the idea of a fearsome government like the “Reign of Terror” that had just occurred in France earlier that decade. While this is likely not how a modern president would use the word, it still feels topical given the issues nations were struggling to face at the time.</p>
-</section>
-<section id="sentiment-analysis" class="level2">
-<h2 class="anchored" data-anchor-id="sentiment-analysis">Sentiment Analysis</h2>
-<p>There are a variety of methods/tools we have access to for evaluating the feelings expressed by text, but two big lexicons we will be using are <code>AFINN</code> and <code>nrc</code>.</p>
-<p>The <code>AFINN</code> lexicon contains words with various emotional charges and for each, has a score ranging between -5 and 5 with negative scores indicating negative sentiment and positive scores indicating positive sentiment.</p>
-<p>The <code>nrc</code> sorts words into categories os positive, negative, anger, anticipation, disgust, fear, joy, sadness, surprise, and trust.</p>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb22"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb22-1"><a href="#cb22-1" aria-hidden="true" tabindex="-1"></a>afinn <span class="ot">&lt;-</span> <span class="fu">get_sentiments</span>(<span class="st">"afinn"</span>)</span>
-<span id="cb22-2"><a href="#cb22-2" aria-hidden="true" tabindex="-1"></a>nrc <span class="ot">&lt;-</span> <span class="fu">get_sentiments</span>(<span class="st">"nrc"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</div>
-<p>We can combine these lexicons into one large dataset, and peel off all the words with an emotional charge. Let’s also make a character vector where each entry is an inaugural address.</p>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb23"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb23-1"><a href="#cb23-1" aria-hidden="true" tabindex="-1"></a>nrc_full <span class="ot">&lt;-</span> nrc <span class="sc">|&gt;</span> </span>
-<span id="cb23-2"><a href="#cb23-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">left_join</span>(afinn) <span class="sc">|&gt;</span></span>
-<span id="cb23-3"><a href="#cb23-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(<span class="sc">!</span><span class="fu">is.na</span>(value))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stderr">
-<pre><code>Joining with `by = join_by(word)`</code></pre>
-</div>
-<div class="sourceCode cell-code" id="cb25"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb25-1"><a href="#cb25-1" aria-hidden="true" tabindex="-1"></a>all_word <span class="ot">&lt;-</span> nrc_full<span class="sc">$</span>word</span>
-<span id="cb25-2"><a href="#cb25-2" aria-hidden="true" tabindex="-1"></a>inaug <span class="ot">&lt;-</span> <span class="fu">as_tibble</span>(data_corpus_inaugural)<span class="sc">$</span>value</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</div>
-<p>Now we have the tools ready to analyze our text. Let’s first look at all speeches overall and see what generalizations can be made for all addresses as a whole.</p>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb26"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb26-1"><a href="#cb26-1" aria-hidden="true" tabindex="-1"></a>counts <span class="ot">&lt;-</span> <span class="fu">c</span>()</span>
-<span id="cb26-2"><a href="#cb26-2" aria-hidden="true" tabindex="-1"></a>index <span class="ot">&lt;-</span> <span class="dv">1</span></span>
-<span id="cb26-3"><a href="#cb26-3" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> (i <span class="cf">in</span> all_word){</span>
-<span id="cb26-4"><a href="#cb26-4" aria-hidden="true" tabindex="-1"></a>  counts[index] <span class="ot">&lt;-</span> <span class="dv">0</span></span>
-<span id="cb26-5"><a href="#cb26-5" aria-hidden="true" tabindex="-1"></a>  </span>
-<span id="cb26-6"><a href="#cb26-6" aria-hidden="true" tabindex="-1"></a>  <span class="cf">for</span>(j <span class="cf">in</span> inaug){</span>
-<span id="cb26-7"><a href="#cb26-7" aria-hidden="true" tabindex="-1"></a>    <span class="cf">if</span>(<span class="fu">str_detect</span>(<span class="fu">str_to_lower</span>(j), <span class="fu">paste0</span>(<span class="st">"</span><span class="sc">\\</span><span class="st">b"</span>, i, <span class="st">"</span><span class="sc">\\</span><span class="st">b"</span>))){</span>
-<span id="cb26-8"><a href="#cb26-8" aria-hidden="true" tabindex="-1"></a><span class="co">#need to use paste0 function to add borders on other side of variable, otherwise words like "assembly" would get flagged for containing "ass" </span></span>
-<span id="cb26-9"><a href="#cb26-9" aria-hidden="true" tabindex="-1"></a>      counts[index] <span class="ot">&lt;-</span> counts[index] <span class="sc">+</span> <span class="dv">1</span></span>
-<span id="cb26-10"><a href="#cb26-10" aria-hidden="true" tabindex="-1"></a>    }</span>
-<span id="cb26-11"><a href="#cb26-11" aria-hidden="true" tabindex="-1"></a>  }</span>
-<span id="cb26-12"><a href="#cb26-12" aria-hidden="true" tabindex="-1"></a>  <span class="co">#print(counts[index])</span></span>
-<span id="cb26-13"><a href="#cb26-13" aria-hidden="true" tabindex="-1"></a>  index <span class="ot">&lt;-</span> index <span class="sc">+</span> <span class="dv">1</span></span>
-<span id="cb26-14"><a href="#cb26-14" aria-hidden="true" tabindex="-1"></a>  <span class="co">#print(index)</span></span>
-<span id="cb26-15"><a href="#cb26-15" aria-hidden="true" tabindex="-1"></a>  </span>
-<span id="cb26-16"><a href="#cb26-16" aria-hidden="true" tabindex="-1"></a>}</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</div>
-<p>counts() is a vector containing the number of occurrences of each of the sentimental words we had in our record. Let’s add this into our dataset and calculate the total emotional value for all words over the course of every address.</p>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb27"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb27-1"><a href="#cb27-1" aria-hidden="true" tabindex="-1"></a>nrc_full <span class="ot">&lt;-</span> nrc_full <span class="sc">|&gt;</span></span>
-<span id="cb27-2"><a href="#cb27-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">n =</span> counts, <span class="at">net_value =</span> value<span class="sc">*</span>n)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</div>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb28"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb28-1"><a href="#cb28-1" aria-hidden="true" tabindex="-1"></a>topword <span class="ot">&lt;-</span> nrc_full <span class="sc">|&gt;</span></span>
-<span id="cb28-2"><a href="#cb28-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">arrange</span>(<span class="fu">desc</span>(net_value)) <span class="sc">|&gt;</span></span>
-<span id="cb28-3"><a href="#cb28-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">distinct</span>(word, n, net_value) <span class="sc">|&gt;</span></span>
-<span id="cb28-4"><a href="#cb28-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">slice_max</span>(net_value, <span class="at">n =</span> <span class="dv">20</span>) <span class="sc">|&gt;</span></span>
-<span id="cb28-5"><a href="#cb28-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">positivity =</span> <span class="st">"good"</span>)</span>
-<span id="cb28-6"><a href="#cb28-6" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb28-7"><a href="#cb28-7" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb28-8"><a href="#cb28-8" aria-hidden="true" tabindex="-1"></a>bottom_word <span class="ot">&lt;-</span> nrc_full <span class="sc">|&gt;</span></span>
-<span id="cb28-9"><a href="#cb28-9" aria-hidden="true" tabindex="-1"></a>  <span class="fu">arrange</span>(net_value) <span class="sc">|&gt;</span></span>
-<span id="cb28-10"><a href="#cb28-10" aria-hidden="true" tabindex="-1"></a>  <span class="fu">distinct</span>(word, n, net_value) <span class="sc">|&gt;</span></span>
-<span id="cb28-11"><a href="#cb28-11" aria-hidden="true" tabindex="-1"></a>  <span class="fu">slice_min</span>(net_value, <span class="at">n =</span> <span class="dv">20</span>) <span class="sc">|&gt;</span></span>
-<span id="cb28-12"><a href="#cb28-12" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">positivity =</span> <span class="st">"bad"</span>)</span>
-<span id="cb28-13"><a href="#cb28-13" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb28-14"><a href="#cb28-14" aria-hidden="true" tabindex="-1"></a>extreme_word <span class="ot">&lt;-</span> <span class="fu">bind_rows</span>(topword, bottom_word)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</div>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb29"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb29-1"><a href="#cb29-1" aria-hidden="true" tabindex="-1"></a>extreme_word <span class="sc">|&gt;</span></span>
-<span id="cb29-2"><a href="#cb29-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">word =</span> <span class="fu">fct_reorder</span>(word, net_value)) <span class="sc">|&gt;</span></span>
-<span id="cb29-3"><a href="#cb29-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(word, net_value, <span class="at">fill =</span> positivity)) <span class="sc">+</span></span>
-<span id="cb29-4"><a href="#cb29-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_col</span>() <span class="sc">+</span></span>
-<span id="cb29-5"><a href="#cb29-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme</span>(<span class="at">axis.text.x =</span> <span class="fu">element_text</span>(<span class="at">angle =</span> <span class="dv">90</span>, <span class="at">size =</span> <span class="dv">10</span>)) <span class="sc">+</span></span>
-<span id="cb29-6"><a href="#cb29-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">x =</span> <span class="st">"Word"</span>, <span class="at">y =</span> <span class="st">"Net Positivity"</span>, <span class="at">title =</span> <span class="st">"Extreme Emotional Words for All Presidential Inaugural Addresses"</span>, <span class="at">fill =</span> <span class="st">"Type"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output-display">
-<p><img src="textProject_files/figure-html/unnamed-chunk-10-1.png" class="img-fluid" width="672"></p>
-</div>
-</div>
-<p>After sorting, we see the word with the most profound positive effect when combining all our addresses is “good”, which may be an underwhelming choice, but it certainly makes sense that such a common word would make it to the top. Some more notable results have “hope”, “peace” and “justice” all tied for second place and “freedom” and “strength” not too far down from that. All of these highlight core, nationalistic values the US holds highly and provides a picture of what emotional impact the each president has wanted to convey as we usher in a new era of leadership.</p>
-<p>On the other hand, these speeches can be a platform to address the threats looming over each presidential term and act as either a cautionary warning, or a denouncement of such beliefs.</p>
-<p>We also can see that by far the most pervasive negative term in these addresses is “war” which is a surprisingly straightforward answer. The term has a very strong connection to the history of the US throughout all eras and is undeniably one of the largest challenges for the leadership of any nation. Another interesting thing to note is that slavery is 10th, and crime and debt are 13th and 14th. These fairly accurately reflect the most pressing issues the US has faced over the course of its entire history. However, although these negative keywords highlight the overall adversities experience by our nation, their presence may also serve to emphasize the resilience, determination, and resolve of Americans to overcome these obstacles.</p>
-<p>Because of this, not all inaugural addresses are equal. Due to the historical contexts of the times, certain speeches may be more negative-sounding than others. The US has had 16 presidential addresses during times of war. Let’s highlight those 16 specifically, and see if they really do tend to have a more gloomy tone than the rest.</p>
-<p>First, we’ll make a new data set that has a total sentimental value attached to each presidential address.</p>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb30"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb30-1"><a href="#cb30-1" aria-hidden="true" tabindex="-1"></a>newcounts <span class="ot">&lt;-</span> <span class="fu">c</span>()</span>
-<span id="cb30-2"><a href="#cb30-2" aria-hidden="true" tabindex="-1"></a>index <span class="ot">&lt;-</span> <span class="dv">1</span></span>
-<span id="cb30-3"><a href="#cb30-3" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb30-4"><a href="#cb30-4" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span>(i <span class="cf">in</span> inaug){</span>
-<span id="cb30-5"><a href="#cb30-5" aria-hidden="true" tabindex="-1"></a>  newcounts[index] <span class="ot">&lt;-</span> <span class="dv">0</span></span>
-<span id="cb30-6"><a href="#cb30-6" aria-hidden="true" tabindex="-1"></a>  </span>
-<span id="cb30-7"><a href="#cb30-7" aria-hidden="true" tabindex="-1"></a>  <span class="cf">for</span>(j <span class="cf">in</span> all_word){</span>
-<span id="cb30-8"><a href="#cb30-8" aria-hidden="true" tabindex="-1"></a>    <span class="cf">if</span>(<span class="fu">str_detect</span>(<span class="fu">str_to_lower</span>(i), <span class="fu">paste0</span>(<span class="st">"</span><span class="sc">\\</span><span class="st">b"</span>, j, <span class="st">"</span><span class="sc">\\</span><span class="st">b"</span>))){</span>
-<span id="cb30-9"><a href="#cb30-9" aria-hidden="true" tabindex="-1"></a>      newcounts[index] <span class="ot">&lt;-</span> newcounts[index] <span class="sc">+</span> nrc_full<span class="sc">$</span>value[<span class="fu">which</span>(nrc_full<span class="sc">$</span>word <span class="sc">==</span> j)[<span class="dv">1</span>]]</span>
-<span id="cb30-10"><a href="#cb30-10" aria-hidden="true" tabindex="-1"></a>    }</span>
-<span id="cb30-11"><a href="#cb30-11" aria-hidden="true" tabindex="-1"></a>  }</span>
-<span id="cb30-12"><a href="#cb30-12" aria-hidden="true" tabindex="-1"></a>  <span class="co">#print(newcounts[index])</span></span>
-<span id="cb30-13"><a href="#cb30-13" aria-hidden="true" tabindex="-1"></a>  index <span class="ot">&lt;-</span> index <span class="sc">+</span> <span class="dv">1</span></span>
-<span id="cb30-14"><a href="#cb30-14" aria-hidden="true" tabindex="-1"></a>  <span class="co">#print(index)</span></span>
-<span id="cb30-15"><a href="#cb30-15" aria-hidden="true" tabindex="-1"></a>}</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</div>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb31"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb31-1"><a href="#cb31-1" aria-hidden="true" tabindex="-1"></a>pres_nrc <span class="ot">&lt;-</span> <span class="fu">as_tibble</span>(<span class="fu">cbind</span>(<span class="fu">summary</span>(data_corpus_inaugural)<span class="sc">$</span>Text, newcounts))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stderr">
-<pre><code>Warning: The `x` argument of `as_tibble.matrix()` must have unique column names if
-`.name_repair` is omitted as of tibble 2.0.0.
-ℹ Using compatibility `.name_repair`.</code></pre>
-</div>
-<div class="sourceCode cell-code" id="cb33"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb33-1"><a href="#cb33-1" aria-hidden="true" tabindex="-1"></a>pres_nrc <span class="ot">&lt;-</span> pres_nrc <span class="sc">|&gt;</span></span>
-<span id="cb33-2"><a href="#cb33-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">newcounts =</span> <span class="fu">as.numeric</span>(newcounts)) <span class="sc">|&gt;</span></span>
-<span id="cb33-3"><a href="#cb33-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">rename</span>(<span class="at">address =</span> <span class="st">"V1"</span>, <span class="at">positivity =</span> <span class="st">"newcounts"</span>)</span>
-<span id="cb33-4"><a href="#cb33-4" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb33-5"><a href="#cb33-5" aria-hidden="true" tabindex="-1"></a>pres_nrc <span class="ot">&lt;-</span> pres_nrc <span class="sc">|&gt;</span></span>
-<span id="cb33-6"><a href="#cb33-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">left_join</span>(<span class="fu">summary</span>(data_corpus_inaugural), <span class="at">by =</span> <span class="fu">join_by</span>(address <span class="sc">==</span> Text))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</div>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb34"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb34-1"><a href="#cb34-1" aria-hidden="true" tabindex="-1"></a>pres_nrc <span class="sc">|&gt;</span></span>
-<span id="cb34-2"><a href="#cb34-2" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(<span class="fu">aes</span>(address, positivity, <span class="at">fill =</span> Party)) <span class="sc">+</span></span>
-<span id="cb34-3"><a href="#cb34-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_col</span>() <span class="sc">+</span></span>
-<span id="cb34-4"><a href="#cb34-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme</span>(<span class="at">axis.text.x =</span> <span class="fu">element_text</span>(<span class="at">angle =</span> <span class="dv">90</span>, <span class="at">size =</span> <span class="dv">5</span>)) <span class="sc">+</span></span>
-<span id="cb34-5"><a href="#cb34-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">x =</span> <span class="st">"Address"</span>, <span class="at">y =</span> <span class="st">"Positivity"</span>, <span class="at">title =</span> <span class="st">"Overall Positivity of Presidential Inaugural Addresses"</span>, <span class="at">caption =</span> <span class="st">"Based on Afinn scores"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output-display">
-<p><img src="textProject_files/figure-html/unnamed-chunk-13-1.png" class="img-fluid" width="672"></p>
-</div>
-</div>
-<p>Plotting this information shows that, in general, presidential inaugural addresses tend to be more positive than negative. It acts as a time for inspiring the nation and instilling hope for the future. Even when acknowledging uncertainty, the speeches still commit to addressing these challenges effectively. All this makes the few net negative speeches all the more interesting with what insight they can share for the era in which they were delivered.</p>
-<p>By far the most negative was Lincoln’s first address given in 1861, just around a month before the US entered its deadliest war to date. We can also see two of FDR’s speeches also sink to the bottom as most negative, one for 1937 and another following in 1941, which coincides with WWII, the second deadliest war for the nation.</p>
-<p>One more interesting part to observe is that President Garfield’s speech had an end total of 0 on the positivity scale. This is largely due to how his speech praised how proud he was of his nation, but condemned any acts he saw as a threat to it (namely the impediment of African-American sufferage).</p>
+<!-- Here we can see Adams' reference to terror is more in line with the idea of a fearsome government like the "Reign of
+Terror" that had just occurred in France earlier that decade. While this is likely not how a modern president would use the word, it still feels topical given the issues nations were struggling to face at the time. -->
+<!-- ## Sentiment Analysis -->
+<!-- There are a variety of methods/tools we have access to for evaluating the feelings expressed by text, but two big lexicons we will be using are `AFINN` and `nrc`. -->
+<!-- The `AFINN` lexicon contains words with various emotional charges and for each, has a score ranging between -5 and 5 with negative scores indicating negative sentiment and positive scores indicating positive sentiment. -->
+<!-- The `nrc` sorts words into categories os positive, negative, anger, anticipation, disgust, fear, joy, sadness, surprise, and trust. -->
+<!-- ```{r} -->
+<!-- afinn <- get_sentiments("afinn") -->
+<!-- nrc <- get_sentiments("nrc") -->
+<!-- ``` -->
+<!-- We can combine these lexicons into one large dataset, and peel off all the words with an emotional charge. Let's also make a character vector where each entry is an inaugural address. -->
+<!-- ```{r} -->
+<!-- nrc_full <- nrc |> -->
+<!--   left_join(afinn) |> -->
+<!--   filter(!is.na(value)) -->
+<!-- all_word <- nrc_full$word -->
+<!-- inaug <- as_tibble(data_corpus_inaugural)$value -->
+<!-- ``` -->
+<!-- Now we have the tools ready to analyze our text. Let's first look at all speeches overall and see what generalizations can be made for all addresses as a whole. -->
+<!-- ```{r} -->
+<!-- counts <- c() -->
+<!-- index <- 1 -->
+<!-- for (i in all_word){ -->
+<!--   counts[index] <- 0 -->
+<!--   for(j in inaug){ -->
+<!--     if(str_detect(str_to_lower(j), paste0("\\b", i, "\\b"))){ -->
+<!-- #need to use paste0 function to add borders on other side of variable, otherwise words like "assembly" would get flagged for containing "ass" -->
+<!--       counts[index] <- counts[index] + 1 -->
+<!--     } -->
+<!--   } -->
+<!--   #print(counts[index]) -->
+<!--   index <- index + 1 -->
+<!--   #print(index) -->
+<!-- } -->
+<!-- ``` -->
+<!-- counts() is a vector containing the number of occurrences of each of the sentimental words we had in our record. Let's add this into our dataset and calculate the total emotional value for all words over the course of every address. -->
+<!-- ```{r} -->
+<!-- nrc_full <- nrc_full |> -->
+<!--   mutate(n = counts, net_value = value*n) -->
+<!-- ``` -->
+<!-- ```{r} -->
+<!-- topword <- nrc_full |> -->
+<!--   arrange(desc(net_value)) |> -->
+<!--   distinct(word, n, net_value) |> -->
+<!--   slice_max(net_value, n = 20) |> -->
+<!--   mutate(positivity = "good") -->
+<!-- bottom_word <- nrc_full |> -->
+<!--   arrange(net_value) |> -->
+<!--   distinct(word, n, net_value) |> -->
+<!--   slice_min(net_value, n = 20) |> -->
+<!--   mutate(positivity = "bad") -->
+<!-- extreme_word <- bind_rows(topword, bottom_word) -->
+<!-- ``` -->
+<!-- ```{r} -->
+<!-- extreme_word |> -->
+<!--   mutate(word = fct_reorder(word, net_value)) |> -->
+<!--   ggplot(aes(word, net_value, fill = positivity)) + -->
+<!--   geom_col() + -->
+<!--   theme(axis.text.x = element_text(angle = 90, size = 10)) + -->
+<!--   labs(x = "Word", y = "Net Positivity", title = "Extreme Emotional Words for All Presidential Inaugural Addresses", fill = "Type") -->
+<!-- ``` -->
+<!-- After sorting, we see the word with the most profound positive effect when combining all our addresses is "good", which may be an underwhelming choice, but it certainly makes sense that such a common word would make it to the top. Some more notable results have "hope", "peace" and "justice" all tied for second place and "freedom" and "strength" not too far down from that. All of these highlight core, nationalistic values the US holds highly and provides a picture of what emotional impact the each president has wanted to convey as we usher in a new era of leadership. -->
+<!-- On the other hand, these speeches can be a platform to address the threats looming over each presidential term and act as either a cautionary warning, or a denouncement of such beliefs. -->
+<!-- We also can see that by far the most pervasive negative term in these addresses is "war" which is a surprisingly straightforward answer. The term has a very strong connection to the history of the US throughout all eras and is undeniably one of the largest challenges for the leadership of any nation. Another interesting thing to note is that slavery is 10th, and crime and debt are 13th and 14th. These fairly accurately reflect the most pressing issues the US has faced over the course of its entire history. However, although these negative keywords highlight the overall adversities experience by our nation, their presence may also serve to emphasize the resilience, determination, and resolve of Americans to overcome these obstacles. -->
+<!-- Because of this, not all inaugural addresses are equal. Due to the historical contexts of the times, certain speeches may be more negative-sounding than others. The US has had 16 presidential addresses during times of war. Let's highlight those 16 specifically, and see if they really do tend to have a more gloomy tone than the rest. -->
+<!-- First, we'll make a new data set that has a total sentimental value attached to each presidential address. -->
+<!-- ```{r} -->
+<!-- newcounts <- c() -->
+<!-- index <- 1 -->
+<!-- for(i in inaug){ -->
+<!--   newcounts[index] <- 0 -->
+<!--   for(j in all_word){ -->
+<!--     if(str_detect(str_to_lower(i), paste0("\\b", j, "\\b"))){ -->
+<!--       newcounts[index] <- newcounts[index] + nrc_full$value[which(nrc_full$word == j)[1]] -->
+<!--     } -->
+<!--   } -->
+<!--   #print(newcounts[index]) -->
+<!--   index <- index + 1 -->
+<!--   #print(index) -->
+<!-- } -->
+<!-- ``` -->
+<!-- ```{r} -->
+<!-- pres_nrc <- as_tibble(cbind(summary(data_corpus_inaugural)$Text, newcounts)) -->
+<!-- pres_nrc <- pres_nrc |> -->
+<!--   mutate(newcounts = as.numeric(newcounts)) |> -->
+<!--   rename(address = "V1", positivity = "newcounts") -->
+<!-- pres_nrc <- pres_nrc |> -->
+<!--   left_join(summary(data_corpus_inaugural), by = join_by(address == Text)) -->
+<!-- ``` -->
+<!-- ```{r} -->
+<!-- pres_nrc |> -->
+<!-- ggplot(aes(address, positivity, fill = Party)) + -->
+<!--   geom_col() + -->
+<!--   theme(axis.text.x = element_text(angle = 90, size = 5)) + -->
+<!--   labs(x = "Address", y = "Positivity", title = "Overall Positivity of Presidential Inaugural Addresses", caption = "Based on Afinn scores") -->
+<!-- ``` -->
+<!-- Plotting this information shows that, in general, presidential inaugural addresses tend to be more positive than negative. It acts as a time for inspiring the nation and instilling hope for the future. Even when acknowledging uncertainty, the speeches still commit to addressing these challenges effectively. All this makes the few net negative speeches all the more interesting with what insight they can share for the era in which they were delivered. -->
+<!-- By far the most negative was Lincoln's first address given in 1861, just around a month before the US entered its deadliest war to date. We can also see two of FDR's speeches also sink to the bottom as most negative, one for 1937 and another following in 1941, which coincides with WWII, the second deadliest war for the nation. -->
+<!-- One more interesting part to observe is that President Garfield's speech had an end total of 0 on the positivity scale. This is largely due to how his speech praised how proud he was of his nation, but condemned any acts he saw as a threat to it (namely the impediment of African-American suffrage). -->
 
 
 </section>
@@ -452,18 +440,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
     }
     return false;
   }
-  const clipboard = new window.ClipboardJS('.code-copy-button', {
-    text: function(trigger) {
-      const codeEl = trigger.previousElementSibling.cloneNode(true);
-      for (const childEl of codeEl.children) {
-        if (isCodeAnnotation(childEl)) {
-          childEl.remove();
-        }
-      }
-      return codeEl.innerText;
-    }
-  });
-  clipboard.on('success', function(e) {
+  const onCopySuccess = function(e) {
     // button target
     const button = e.trigger;
     // don't keep focus
@@ -495,11 +472,50 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
     }, 1000);
     // clear code selection
     e.clearSelection();
+  }
+  const getTextToCopy = function(trigger) {
+      const codeEl = trigger.previousElementSibling.cloneNode(true);
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
+        }
+      }
+      return codeEl.innerText;
+  }
+  const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
+    text: getTextToCopy
   });
-  function tippyHover(el, contentFn) {
+  clipboard.on('success', onCopySuccess);
+  if (window.document.getElementById('quarto-embedded-source-code-modal')) {
+    // For code content inside modals, clipBoardJS needs to be initialized with a container option
+    // TODO: Check when it could be a function (https://github.com/zenorocha/clipboard.js/issues/860)
+    const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
+      text: getTextToCopy,
+      container: window.document.getElementById('quarto-embedded-source-code-modal')
+    });
+    clipboardModal.on('success', onCopySuccess);
+  }
+    var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
+    var mailtoRegex = new RegExp(/^mailto:/);
+      var filterRegex = new RegExp('/' + window.location.host + '/');
+    var isInternal = (href) => {
+        return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
+    }
+    // Inspect non-navigation links and adorn them if external
+ 	var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool):not(.about-link)');
+    for (var i=0; i<links.length; i++) {
+      const link = links[i];
+      if (!isInternal(link.href)) {
+        // undo the damage that might have been done by quarto-nav.js in the case of
+        // links that we want to consider external
+        if (link.dataset.originalHref !== undefined) {
+          link.href = link.dataset.originalHref;
+        }
+      }
+    }
+  function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
     const config = {
       allowHTML: true,
-      content: contentFn,
       maxWidth: 500,
       delay: 100,
       arrow: false,
@@ -509,8 +525,17 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
       interactive: true,
       interactiveBorder: 10,
       theme: 'quarto',
-      placement: 'bottom-start'
+      placement: 'bottom-start',
     };
+    if (contentFn) {
+      config.content = contentFn;
+    }
+    if (onTriggerFn) {
+      config.onTrigger = onTriggerFn;
+    }
+    if (onUntriggerFn) {
+      config.onUntrigger = onUntriggerFn;
+    }
     window.tippy(el, config); 
   }
   const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
@@ -522,7 +547,130 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
       try { href = new URL(href).hash; } catch {}
       const id = href.replace(/^#\/?/, "");
       const note = window.document.getElementById(id);
-      return note.innerHTML;
+      if (note) {
+        return note.innerHTML;
+      } else {
+        return "";
+      }
+    });
+  }
+  const xrefs = window.document.querySelectorAll('a.quarto-xref');
+  const processXRef = (id, note) => {
+    // Strip column container classes
+    const stripColumnClz = (el) => {
+      el.classList.remove("page-full", "page-columns");
+      if (el.children) {
+        for (const child of el.children) {
+          stripColumnClz(child);
+        }
+      }
+    }
+    stripColumnClz(note)
+    if (id === null || id.startsWith('sec-')) {
+      // Special case sections, only their first couple elements
+      const container = document.createElement("div");
+      if (note.children && note.children.length > 2) {
+        container.appendChild(note.children[0].cloneNode(true));
+        for (let i = 1; i < note.children.length; i++) {
+          const child = note.children[i];
+          if (child.tagName === "P" && child.innerText === "") {
+            continue;
+          } else {
+            container.appendChild(child.cloneNode(true));
+            break;
+          }
+        }
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(container);
+        }
+        return container.innerHTML
+      } else {
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(note);
+        }
+        return note.innerHTML;
+      }
+    } else {
+      // Remove any anchor links if they are present
+      const anchorLink = note.querySelector('a.anchorjs-link');
+      if (anchorLink) {
+        anchorLink.remove();
+      }
+      if (window.Quarto?.typesetMath) {
+        window.Quarto.typesetMath(note);
+      }
+      // TODO in 1.5, we should make sure this works without a callout special case
+      if (note.classList.contains("callout")) {
+        return note.outerHTML;
+      } else {
+        return note.innerHTML;
+      }
+    }
+  }
+  for (var i=0; i<xrefs.length; i++) {
+    const xref = xrefs[i];
+    tippyHover(xref, undefined, function(instance) {
+      instance.disable();
+      let url = xref.getAttribute('href');
+      let hash = undefined; 
+      if (url.startsWith('#')) {
+        hash = url;
+      } else {
+        try { hash = new URL(url).hash; } catch {}
+      }
+      if (hash) {
+        const id = hash.replace(/^#\/?/, "");
+        const note = window.document.getElementById(id);
+        if (note !== null) {
+          try {
+            const html = processXRef(id, note.cloneNode(true));
+            instance.setContent(html);
+          } finally {
+            instance.enable();
+            instance.show();
+          }
+        } else {
+          // See if we can fetch this
+          fetch(url.split('#')[0])
+          .then(res => res.text())
+          .then(html => {
+            const parser = new DOMParser();
+            const htmlDoc = parser.parseFromString(html, "text/html");
+            const note = htmlDoc.getElementById(id);
+            if (note !== null) {
+              const html = processXRef(id, note);
+              instance.setContent(html);
+            } 
+          }).finally(() => {
+            instance.enable();
+            instance.show();
+          });
+        }
+      } else {
+        // See if we can fetch a full url (with no hash to target)
+        // This is a special case and we should probably do some content thinning / targeting
+        fetch(url)
+        .then(res => res.text())
+        .then(html => {
+          const parser = new DOMParser();
+          const htmlDoc = parser.parseFromString(html, "text/html");
+          const note = htmlDoc.querySelector('main.content');
+          if (note !== null) {
+            // This should only happen for chapter cross references
+            // (since there is no id in the URL)
+            // remove the first header
+            if (note.children.length > 0 && note.children[0].tagName === "HEADER") {
+              note.children[0].remove();
+            }
+            const html = processXRef(null, note);
+            instance.setContent(html);
+          } 
+        }).finally(() => {
+          instance.enable();
+          instance.show();
+        });
+      }
+    }, function(instance) {
     });
   }
       let selectedAnnoteEl;
@@ -566,6 +714,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
             }
             div.style.top = top - 2 + "px";
             div.style.height = height + 4 + "px";
+            div.style.left = 0;
             let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
             if (gutterDiv === null) {
               gutterDiv = window.document.createElement("div");
@@ -591,6 +740,32 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
         });
         selectedAnnoteEl = undefined;
       };
+        // Handle positioning of the toggle
+    window.addEventListener(
+      "resize",
+      throttle(() => {
+        elRect = undefined;
+        if (selectedAnnoteEl) {
+          selectCodeLines(selectedAnnoteEl);
+        }
+      }, 10)
+    );
+    function throttle(fn, ms) {
+    let throttle = false;
+    let timer;
+      return (...args) => {
+        if(!throttle) { // first call gets through
+            fn.apply(this, args);
+            throttle = true;
+        } else { // all the others get throttled
+            if(timer) clearTimeout(timer); // cancel #2
+            timer = setTimeout(() => {
+              fn.apply(this, args);
+              timer = throttle = false;
+            }, ms);
+        }
+      };
+    }
       // Attach click handler to the DT
       const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
       for (const annoteDlNode of annoteDls) {
@@ -651,6 +826,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 });
 </script>
 </div> <!-- /content -->
+
 
 
 
